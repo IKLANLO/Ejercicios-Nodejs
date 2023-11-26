@@ -4,8 +4,7 @@ const url = require('url')
 
 http
   .createServer((req, res) => {
-    const query = url.parse(req.url, true)
-    const filename = `./pages${query.pathname}.html`
+    const filename = `./pages${url.parse(req.url, true).pathname}.html`
 
     fs.readFile(filename, (err, data) => {
       try {
